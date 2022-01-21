@@ -155,6 +155,13 @@ footer ul {
   text-decoration: underline;
   text-align: center;
 }
+.header p,
+.contact p,
+.projects p,
+.about p {
+  font-size: 125%;
+}
+
 .header a {
   display: inline-block;
   color: var(--light-color);
@@ -480,14 +487,17 @@ footer {
 }
 .contact .form button {
   margin-bottom: 0.75rem;
+  margin-left: 0.25rem;
   letter-spacing: 3px;
   font-family: inherit;
   text-transform: uppercase;
   font-size: 1rem;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   border: 0;
   font-weight: bold;
   border-radius: 7px;
+  outline: 2px dashed var(--primary-color);
+  outline-offset: 2px;
   cursor: pointer;
   color: var(--light-color);
   background: var(--secondary-color);
