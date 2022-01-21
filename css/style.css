@@ -8,7 +8,9 @@
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,11 +18,10 @@
 }
 body {
   font-family: 'Cabin Sketch', sans-serif;
-  /* font-family: 'Bree Serif', sans-serif; */
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
-  background: #fff;
+  color: var(--dark-color);
+  background: var(--light-color);
   overflow-x: hidden;
 }
 img {
@@ -28,6 +29,34 @@ img {
 }
 ul {
   list-style: none;
+}
+.scroll-up {
+  height: 45px;
+  width: 45px;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: var(--primary-color);
+  border: 3px solid var(--secondary-color);
+  border-radius: 50px;
+  background: var(--gray-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  z-index: 100;
+}
+
+.scroll-up.showBtn {
+  opacity: 1;
+  transform: translateX(0);
+}
+.scroll-up.onClick {
+  opacity: 1;
+  animation: scrollUp 0.5s ease forwards;
 }
 
 .container {
@@ -44,7 +73,7 @@ ul {
 }
 
 .navbar {
-  color: #fff;
+  color: var(--light-color);
   height: 60px;
   position: absolute;
   top: 0;
@@ -61,7 +90,7 @@ ul {
   font-weight: bold;
 }
 .navbar a {
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
@@ -94,7 +123,7 @@ ul {
 .header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)),
     url('../img/pankaj-patel-1IW4HQuauSU-unsplash.jpg');
-  color: #fff;
+  color: var(--light-color);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -173,17 +202,20 @@ ul {
   border: 10px solid var(--primary-color);
   border-radius: 50%;
   max-width: 400px;
-  transform: translateX(400%);
+  transform: translateX(200px);
+  opacity: 0;
   filter: grayscale(1) blur(1px);
   transition: 0.5s ease-in-out;
 }
 
 .projects .sections {
-  transform: translateX(-400%);
-  transition: transform 0.5s ease;
+  transform: translateX(-400px);
+  transition: transform 0.5s ease, opacity 0.7s ease;
+  opacity: 0;
 }
 
 .sections.show {
+  opacity: 1;
   transform: translateX(0);
 }
 
@@ -337,7 +369,7 @@ ul {
   font-weight: bold;
   letter-spacing: 0.025rem;
   text-transform: uppercase;
-  color: white;
+  color: var(--light-color);
   background: var(--primary-color);
   border: none;
   text-decoration: none;
@@ -349,7 +381,7 @@ ul {
   background: rgba(255, 255, 255, 0.1);
 }
 .projects .btn:focus {
-  outline: 1px dashed yellow;
+  outline: 2px dashed var(--secondary-color);
   outline-offset: 3px;
 }
 
@@ -484,6 +516,16 @@ ul {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes scrollUp {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.5);
   }
 }
 @keyframes navbar {

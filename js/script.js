@@ -1,7 +1,5 @@
 const sections = document.querySelectorAll('.sections');
-window.addEventListener('scroll', checkBoxes);
-
-checkBoxes();
+const scrollIcon = document.querySelector('.scroll-up');
 
 function checkBoxes() {
   const triggerBottom = (window.innerHeight / 3.5) * 2;
@@ -15,3 +13,19 @@ function checkBoxes() {
     }
   });
 }
+
+const scrollButton = () => {
+  const scrollDown = window.scrollY;
+  if (scrollDown >= 250) {
+    scrollIcon.classList.add('showBtn');
+  } else {
+    scrollIcon.classList.remove('showBtn');
+    scrollIcon.classList.remove('onClick');
+  }
+};
+
+scrollIcon.addEventListener('click', () => scrollIcon.classList.add('onClick'));
+window.addEventListener('scroll', () => {
+  checkBoxes();
+  scrollButton();
+});
