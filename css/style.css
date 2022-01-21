@@ -143,9 +143,39 @@ footer ul {
   transform: translateY(-100px);
   animation: hero 1.8s ease-in-out 1.2s forwards;
 }
+
+.header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: paragraph 1.8s ease-in-out 0.15s;
+}
 .header p {
+  text-decoration: underline;
   text-align: center;
-  animation: paragraph 2s ease-in-out 0.15s;
+}
+.header a {
+  display: inline-block;
+  color: var(--light-color);
+  margin: 2rem 0;
+  padding: 0.5rem 1.5rem;
+  outline: 2px dashed var(--secondary-color);
+  outline-offset: 2px;
+  border: 0;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: var(--primary-color);
+  transition: letter-spacing 0.7s ease;
+}
+.header a i {
+  font-size: 125%;
+}
+.header a:hover {
+  letter-spacing: 5px;
 }
 
 .header .container {
@@ -645,6 +675,13 @@ footer ul li a:hover {
   footer ul li i {
     font-size: 115%;
   }
+  .header a {
+    padding: 0.5rem 0.75rem;
+    font-size: 75%;
+  }
+  .header a i {
+    font-size: 110%;
+  }
 }
 @media (max-width: 500px) {
   .header .hero-text {
@@ -725,7 +762,7 @@ footer ul li a:hover {
 
   50% {
     opacity: 0.5;
-    transform: translateY(-120px);
+    transform: translateY(-90px);
   }
 
   100% {
