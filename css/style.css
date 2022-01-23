@@ -166,7 +166,7 @@ footer ul {
   display: inline-block;
   color: var(--light-color);
   margin: 2rem 0;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   outline: 2px dashed var(--secondary-color);
   outline-offset: 2px;
   border: 0;
